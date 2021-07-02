@@ -1,0 +1,54 @@
+//
+//  ViewController.swift
+//  Homework
+//
+//  Created by Alsu Gar on 02.07.2021.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var authorizationLabel: UILabel!
+    
+    @IBOutlet weak var loginTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var remeberSwitch: UISwitch!
+    
+    @IBOutlet weak var remeberLabel: UILabel!
+    
+    @IBOutlet weak var signinButton: UIButton!
+    
+    @IBOutlet weak var checkinButton: UIButton!
+    
+    @IBOutlet weak var incorrectLabel: UILabel!
+    
+    
+    let username = "Admin"
+    let password = "Admin"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        signinButton.layer.cornerRadius = 14
+        checkinButton.layer.borderColor = UIColor.systemBlue.cgColor
+        checkinButton.layer.borderWidth = 1
+        checkinButton.layer.cornerRadius = 14
+        incorrectLabel.isHidden = !incorrectLabel.isHidden
+    }
+    @IBAction func signinAction(_ sender: Any) {
+        guard let username = loginTextField.text,
+              let password = passwordTextField.text
+        else {return}
+        if username == self.username, password == self.password {
+            incorrectLabel.isHidden = false
+            incorrectLabel.text = "Все верно)"
+            incorrectLabel.textColor = UIColor.systemGreen
+        }
+        else {
+            incorrectLabel.isHidden = false}
+    }
+
+}
